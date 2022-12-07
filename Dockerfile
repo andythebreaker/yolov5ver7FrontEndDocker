@@ -34,12 +34,20 @@ WORKDIR /root
 
 ENV FLASK_APP=app.py
 ENV FLASK_RUN_HOST=0.0.0.0
-RUN apt install gcc python3
+RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash - 
+RUN apt install gcc
+RUN apt install python3
+RUN apt install nodejs
+RUN apt install tmux
 COPY requirements.txt requirements.txt
 RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 RUN python3 get-pip.py --force-reinstall
 RUN pip3 install -r requirements.txt
 RUN git clone https://github.com/ultralytics/yolov5.git 
+RUN git clone https://github.com/andythebreaker/material-kit-react.git
+RUN cd material-kit-react && npm i --force
+RUN npm install -g pubhtmlhere
+COPY start.sh start.sh
 EXPOSE 5000
 COPY . .
 CMD ["flask", "run"]
