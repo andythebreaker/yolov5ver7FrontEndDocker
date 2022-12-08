@@ -47,10 +47,13 @@ RUN git clone https://github.com/ultralytics/yolov5.git
 RUN git clone https://github.com/andythebreaker/material-kit-react.git
 RUN cd material-kit-react && npm i --force
 RUN npm install -g pubhtmlhere
-COPY start.sh start.sh
-EXPOSE 5000
+RUN git clone https://github.com/andythebreaker/pythonRelay4y5v7fnd.git
+RUN cd pythonRelay4y5v7fnd && npm i
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
+EXPOSE 5000 22128 43786 30461
 COPY . .
-CMD ["flask", "run"]
+CMD ["/start.sh"]
 
 #CMD ["bash"]
 

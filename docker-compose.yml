@@ -3,7 +3,10 @@ services:
   web:
     build: .
     ports:
-      - "59486:5000"
+      - 59486:5000
+      - 59485:22128
+      - 59484:43786
+      - 59483:30461
   pubhtml:
     image: andythebreaker/phpupdown:latest
     ports:
