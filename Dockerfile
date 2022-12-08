@@ -42,8 +42,8 @@ RUN apt install tmux
 COPY requirements.txt requirements.txt
 RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 RUN python3 get-pip.py --force-reinstall
-RUN pip3 install -r requirements.txt
 RUN git clone https://github.com/ultralytics/yolov5.git 
+RUN cd yolov5 && pip3 install -r requirements.txt
 RUN git clone https://github.com/andythebreaker/material-kit-react.git
 RUN cd material-kit-react && npm i --force
 RUN npm install -g pubhtmlhere
