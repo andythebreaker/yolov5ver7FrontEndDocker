@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   web:
-    build: .
+    image: andythebreaker/yolov5ver7frontenddocker_web:latest
     ports:
       - 59486:5000
       - 59485:22128
@@ -14,5 +14,3 @@ services:
       - 34822:443
       - 34823:9000
       - 34824:48748
-  redis:
-    image: "redis:alpine"
